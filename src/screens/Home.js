@@ -1,14 +1,24 @@
 import React, { useEffect } from 'react';
-import { Button, Text,  View,  } from 'react-native';
+import { Text,  View,  } from 'react-native';
+import {Input, Button, Card} from 'react-native-elements';
+import { AuthContext } from '../providers/AuthProvider';
 
 const HomeScreen = ({navigation})=>{
-  
     return(
-    <View style={{flex:1,justifyContent:'center',alignItems:'center'}}><Text  onPress={()=> navigation.navigate('Profile', { name: 'Profile' })}>Home</Text>
+    <AuthContext.Consumer>
+     {(auth)=>( 
+     <View style={{flex:1,justifyContent:'center',alignItems:'center',}}><Text style={{fontSize:24,fontWeight:'bold'}}  onPress={()=> navigation.navigate('Profile', { name: 'Profile' })}>WelCome Mr {auth.CurrentUser.name} !</Text>
     
-    <Button title='Go To Screen List'  onPress={()=> {navigation.navigate('List Screen',{name:'ListScreen'})}}></Button>
-    <Button title='Go To Signup'  onPress={()=> {navigation.navigate('Signup',{name:'Signup'})}}></Button>
-    </View>);
+     <Button type='outlline' title='Log Out'  onPress={()=> { 
+      auth.setIsLoggedIn(false);
+      auth.setCurrentUser({})
+     }}/>
+   
+    </View>
+               )}
+    </AuthContext.Consumer>
+    
+      );
   }
   export default HomeScreen;
   
