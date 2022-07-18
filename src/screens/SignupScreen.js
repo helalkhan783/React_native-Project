@@ -10,7 +10,7 @@ import {
 } from '../functions/AsyncStorageFunction';
 
 const SignupScreen = ({navigation}) => {
-  const [NAME, setName] = useState('');
+  const [NAME,  ] = useState('');
   const [SID, setStudenId] = useState('');
   const [Password, setPassword] = useState('');
   const [Email, setEmail] = useState('');
