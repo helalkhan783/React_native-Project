@@ -20,5 +20,5 @@ setIsLoggedIn:setIsLoggedIn
 
 export {AuthContext,AuthProvider}; 
 //note :
-// 2 variable export kkorar somoy export defaul kora jabe na 
+// 2 variable export korar somoy export defaul kora jabe na 
  // here props.children refers at App.js navigation container.
